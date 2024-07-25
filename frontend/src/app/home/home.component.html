@@ -1,0 +1,53 @@
+<div>
+    <div class="search-section">
+        <h1>Read reviews. Write reviews. Find companies you can trust.</h1>
+        <input type="text" placeholder="Company or category">
+        <button>Search</button>
+    </div>
+
+    <div class="iteam-categories">
+        <div id="view All">
+            <a href="recentreviews"><button id="viewll">view All</button></a>
+        </div>
+        <a href="bestofbank"><button >Bank</button></a>
+        <a href="#"><button>Car Dealer</button></a>
+        <a href="#"><button>Jewelry Store</button></a>
+        <a href="#"><button>Clothing Store</button></a>
+    </div>
+    <div class="getstart">
+        <h1>Are you business?</h1>
+        <button class="get">Get Started</button>
+    </div>
+
+    <!-- Recent Reviews -->
+    
+    <div class="recent">
+        <div class="reviews">
+            <marquee behavior="scroll" direction="left" scrollamount="5">
+                <div class="reviews-container">
+                    <div *ngFor="let review of reviews" class="review-box">
+                      <div class="profile-photo">
+                        <img [src]="review.profilePhoto" alt="{{ review.name }}">
+                      </div>
+                      <div class="review-content">
+                        <h3>{{ review.name }}</h3>
+                        <p>{{ review.review }}</p>
+                        <div class="rating">
+                          <span *ngFor="let star of [1, 2, 3, 4, 5]" [ngClass]="{'filled': review.rating >= star, 'one-star': review.rating === 1, 'two-star': review.rating === 2, 'three-star': review.rating === 3, 'four-star': review.rating === 4, 'five-star': review.rating === 5}">
+                            ★
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </marquee>
+        </div>
+    </div>
+
+      
+
+    
+    
+    
+    
+    </div>

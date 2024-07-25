@@ -1,0 +1,147 @@
+.search-section {
+    background-color: #00b67a;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.search-section h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.search-section input {
+    width: 60%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.search-section button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.iteam-categories {
+    padding: 10%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(229, 20, 20, 0.863);
+}
+
+.iteam-categories a {
+    display: inline-block;
+    margin: 10px 15px;
+}
+
+.iteam-categories button {
+    padding: 10px;
+    width: 150px; /* Set a fixed width for all buttons */
+    height: 50px; /* Set a fixed height for all buttons */
+    background-color: rgb(177, 213, 238);
+    border: none;
+    box-shadow: 0 4px 8px rgba(220, 86, 86, 0.485);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.iteam-categories button:hover {
+    background-color: #82d6b9;
+    transform: scale(1.05);
+}
+#viewll{
+    margin-left: 75%;
+    height: 40px;
+    width: 70px;
+    background-color: #007bff;
+}
+.getstart{
+    text-align: center;
+}
+.get{
+    padding:10px;
+    border-radius: 20px;
+    background-color: #afceef;
+}
+.recent {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px rgb(235, 7, 7); /* Adjust shadow for more visibility */
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    position: relative; /* Ensures the element can be layered above others */
+    z-index: 10; /* Higher z-index to ensure it's in front */
+    
+}
+
+/* review card */
+
+
+
+    .reviews-container {
+      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 1px;
+      z-index: 10;
+    
+    }
+    
+    .review-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: calc(50% - 20px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    
+    .profile-photo img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .review-content {
+      margin-top: 10px;
+    }
+    
+    .rating {
+      display: flex;
+    }
+    
+    .rating span {
+      font-size: 20px;
+      color: #ddd;
+    }
+    
+    .rating span.filled {
+      color: rgb(19, 10, 255);
+    }
+    
+    .rating span.one-star.filled {
+      color: red;
+    }
+    
+    .rating span.two-star.filled {
+      color: rgb(255, 115, 0);
+    }
+    
+    .rating span.three-star.filled {
+      color: yellow;
+    }
+    
+    .rating span.four-star.filled {
+      color: lightgreen;
+    }
+    
+    .rating span.five-star.filled {
+      color: green;
+    }
+    

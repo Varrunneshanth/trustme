@@ -1,0 +1,14 @@
+<div class="box">
+    <div class="Box">
+      <label>Verify your Email Address</label>
+      <div>Nam ultrictus a risus blandit elementum.<br>Quisque arcu tristique a eu in diam</div>
+      <div>
+        <div id="verif">
+          <label>Verification Code</label>
+          <button (click)="sendCode()">Resend Code</button>
+        </div>
+        <input type="number" [(ngModel)]="verificationCode">
+        <button (click)=" verifyCode()">VERIFY ME</button>
+      </div>
+    </div>
+  </div>

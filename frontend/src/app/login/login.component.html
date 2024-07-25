@@ -1,0 +1,51 @@
+<div class="form-container">
+    <div class="form-content">
+      <div class="form-header">
+        <span (click)="toggleForm('signIn')" [class.active]="isSignIn">Sign In</span>
+        <span (click)="toggleForm('signUp')" [class.active]="!isSignIn">Sign Up</span>
+      </div>
+  
+      <!-- Sign In Form -->
+  <div *ngIf="isSignIn">
+    <form (ngSubmit)="onSignIn()">
+      <div class="form-group">
+        <!-- <label for="email">Email Address</label> -->
+        <input type="email" placeholder="Enter Email Address" id="email" [(ngModel)]="signInEmail" name="email" required>
+      </div>
+      <div class="form-group">
+        <!-- <label for="password">Password</label> -->
+        <input type="password" placeholder="Enter Password" id="password" [(ngModel)]="signInPassword" name="password" required>
+        <a href="/forgetpassword" class="forgot-password">Forget Password</a>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign In</button>
+    
+    </form>
+  </div>
+  
+  
+      <!-- Sign Up Form -->
+      <div *ngIf="!isSignIn">
+        <form (ngSubmit)="onSignUp()">
+            <div class="form-group">
+                <input type="Name"placeholder="Name" id="SignUpName"  [(ngModel)]="SignUpName" name="SignUpName" required>
+            </div>
+          <div class="form-group">
+            <!-- <label for="signUpEmail">Email Address</label> -->
+            <input type="email" placeholder="Enter Email" id="signUpEmail" [(ngModel)]="signUpEmail" name="signUpEmail" required>
+          </div>
+          <div class="form-group">
+            <!-- <label for="signUpPassword">Password</label> -->
+            <input type="password" placeholder="Enter password" id="signUpPassword" [(ngModel)]="signUpPassword" name="signUpPassword" required>
+          </div>
+          <div class="form-group">
+            <!-- <label for="confirmPassword">Confirm Password</label> -->
+            <input type="password" placeholder="Enter Confirm Password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+  
