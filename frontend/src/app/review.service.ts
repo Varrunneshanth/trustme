@@ -19,15 +19,23 @@ export interface Review {
   providedIn: 'root'
 })
 export class ReviewService {
-  private apiUrl = 'http://localhost:3000/api/reviews';
+  private baseUrl = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {}
 
   getReviews(): Observable<Review[]> {
-    return this.http.get<Review[]>(this.apiUrl);
+    return this.http.get<Review[]>(`${this.baseUrl}/reviews`);
   }
 
   addReview(review: Review): Observable<any> {
-    return this.http.post(this.apiUrl, review);
+    return this.http.post(`${this.baseUrl}/reviews`, review);
+  }
+
+  signIn(name: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/auth/signin`, { name, password });
+  }
+
+  signUp(name: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/auth/signup`, { name, password });
   }
 }
