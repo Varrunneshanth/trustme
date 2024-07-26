@@ -1,14 +1,42 @@
-<div>
-    <div>
-        <div><h1>Best in Bank</h1></div>
-        <p>Compare the best companies in this category</p>
-    </div>
-    <div>
-        <div>
-            <app-recentreviews></app-recentreviews>
+<div class="container">
+    <div class="right-side">
+        <app-recentreviews></app-recentreviews>
+      </div>
+    <div class="left-side">
+      <div class="results-info">
+        <span>1-20 of 164 results</span>
+        <div class="sort-options">
+          <label for="sort">Sort by</label>
+          <select id="sort">
+            <option value="relevance">Most relevant</option>
+            <!-- Add other sorting options here if needed -->
+          </select>
         </div>
-        <div>
-            <h1>hi this Nagaraju</h1>
+      </div>
+      <div *ngFor="let creditUnion of creditUnions" class="credit-union-card">
+        <div class="card-header">
+          <!-- <img [src]="creditUnion.logoUrl" alt="{{ creditUnion.name }}" class="credit-union-logo"> -->
+          <div class="credit-union-info">
+            <h2>{{ creditUnion.name }}</h2>
+            <div class="trust-score">
+              <div class="stars">
+                <span *ngFor="let star of [1, 2, 3, 4, 5]" class="star" [class.filled]="star <= creditUnion.trustscore">★</span>
+              </div>
+              <span class="score">{{ creditUnion.trustscore }}</span>
+              <span class="reviews-count">{{ creditUnion.reviews }} reviews</span>
+            </div>
+            <p>{{ creditUnion.location }}</p>
+          </div>
         </div>
+        <div class="card-footer">
+          <div class="categories">
+            <span *ngFor="let category of creditUnion.categories.split(',')">{{ category.trim() }}</span>
+          </div>
+          <div class="actions">
+            <a href="#" class="latest-reviews">Latest reviews</a>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  

@@ -12,10 +12,10 @@ import { TotlereviewComponent } from './totlereview/totlereview.component';
 
 export const routes: Routes = [
     {
-        path:'',component:HomeComponent
+        path:'home',component:HomeComponent
     },
     {
-        path:'login',component:LoginComponent
+        path:'',component:LoginComponent
     },
     {
         path:'forgetpassword',component:ForgetpasswordComponent

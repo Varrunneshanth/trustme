@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ReviewService } from '../review.service';
+import { Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent {
   signInError: string = '';
   signUpError: string = '';
 
-  constructor(private fb: FormBuilder, private authService: ReviewService) {
+  constructor(private fb: FormBuilder, private authService: ReviewService, private router: Router) {
     this.signInForm = this.fb.group({
       signInName: ['', Validators.required],
       signInPassword: ['', Validators.required]
@@ -47,7 +48,7 @@ export class LoginComponent {
       this.authService.signIn(signInName, signInPassword).subscribe(
         response => {
           console.log('Sign in successful', response);
-          // this.router.navigate(['/home']);
+          this.router.navigate(['/categories']);
         },
         error => {
           console.error('Sign in error', error);

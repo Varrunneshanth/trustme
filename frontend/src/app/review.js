@@ -24,7 +24,16 @@ db.connect(err => {
   console.log('MySQL connected...');
 });
 
-// Route to handle adding reviews
+// Get all credit unions
+app.get('/api/credit-unions', (req, res) => {
+  const sql = 'SELECT * FROM credit_unions';
+  db.query(sql, (err, results) => {
+    if (err) throw err;
+    res.json(results);
+  });
+});
+
+// Add a review
 app.post('/api/reviews', (req, res) => {
   const { name, review, rating, email, phoneNumber, website, address, profilePhoto } = req.body;
   const sql = 'INSERT INTO reviews (name, review, rating, email, phoneNumber, website, address, profilePhoto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
@@ -34,7 +43,7 @@ app.post('/api/reviews', (req, res) => {
   });
 });
 
-// Route to fetch reviews
+// Get all reviews
 app.get('/api/reviews', (req, res) => {
   const sql = 'SELECT * FROM reviews';
   db.query(sql, (err, results) => {
@@ -43,7 +52,7 @@ app.get('/api/reviews', (req, res) => {
   });
 });
 
-// Route to handle sign-in
+// Sign in
 app.post('/api/auth/signin', (req, res) => {
   const { name, password } = req.body;
   const sql = 'SELECT * FROM users WHERE name = ? AND password = ?';
@@ -57,7 +66,7 @@ app.post('/api/auth/signin', (req, res) => {
   });
 });
 
-// Route to handle sign-up
+// Sign up
 app.post('/api/auth/signup', (req, res) => {
   const { name, password } = req.body;
   const sql = 'INSERT INTO users (name, password) VALUES (?, ?)';
