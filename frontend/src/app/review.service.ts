@@ -70,4 +70,8 @@ export class ReviewService {
   getCreditUnions(): Observable<CreditUnion[]> {
     return this.http.get<CreditUnion[]>(`${this.apiUrl}/credit-unions`);
   }
+
+  getHdfcBankDetails(): Observable<CreditUnion> {
+    return this.http.get<CreditUnion>(`${this.apiUrl}/credit-unions/hdfc-bank`);
+  }
 }

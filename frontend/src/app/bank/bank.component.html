@@ -1,18 +1,22 @@
 <div class="container">
-    <div class="content">
-        <div class="header-row">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS91g86GYPEmouJD3LiPGSYtYYW9XycFIu4pA&s" alt="HDFC Bank">
-            <h1>HDFC Bank</h1>
-            <div>
-                Reviews good
-            </div>
-            <div>
-                Star rating for overall
-            </div>
-            <div class="action-row">
-                <button class="visit-button">Visit this website</button>
-                <!-- <span class="reviews-count">Reviews count: {{ reviewsCount }}</span> -->
-            </div>
+  <div class="content">
+    <!-- Header Section -->
+    <div class="header-row">
+      <img src="/assets/projectfor trustme/HDFC-Bank-emblem.png" alt="HDFC Bank">
+      <div *ngIf="hdfcBankDetails">
+        <h1>{{ hdfcBankDetails.name }}</h1>
+        <p>Trust Score: {{ hdfcBankDetails.trustscore }}</p>
+        <p>Reviews: {{ hdfcBankDetails.reviews }}</p>
+        <div class="stars">
+          <span *ngFor="let star of [1, 2, 3, 4, 5]" 
+                class="star" 
+                [class.filled]="star <= hdfcBankDetails.trustscore">★
+          </span>
         </div>
+        <span class="score">{{ hdfcBankDetails.trustscore }}</span>
+      </div>
+      <div class="action-row">
+        <button class="visit-button">Visit this website</button>
+      </div>
     </div>
 </div>

@@ -8,6 +8,9 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
   }
+  .review-form:hover{
+    box-sizing: rgb(47, 0, 255);
+  }
   
   .review-form label {
     display: block;
