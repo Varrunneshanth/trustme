@@ -116,7 +116,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
-  database: 'trustme'
+  database: 'bankname'
 });
 
 db.connect(err => {
@@ -124,9 +124,23 @@ db.connect(err => {
   console.log('MySQL connected...');
 });
 
+// Helper function to get bank ID by name
+function getBankId(bankName, callback) {
+  const sql = 'SELECT id FROM banks WHERE name = ?';
+  db.query(sql, [bankName], (err, results) => {
+    if (err) {
+      return callback(err);
+    }
+    if (results.length === 0) {
+      return callback(new Error('Bank not found'));
+    }
+    callback(null, results[0].id);
+  });
+}
+
 // Get all credit unions
 app.get('/api/credit-unions', (req, res) => {
-  const sql = 'SELECT * FROM credit_unions';
+  const sql = 'SELECT * FROM banks';
   db.query(sql, (err, results) => {
     if (err) throw err;
     res.json(results);
@@ -135,7 +149,7 @@ app.get('/api/credit-unions', (req, res) => {
 
 // Get details of HDFC Bank
 app.get('/api/credit-unions/hdfc-bank', (req, res) => {
-  const sql = "SELECT * FROM credit_unions WHERE name = 'HDFC Bank'";
+  const sql = "SELECT * FROM banks WHERE name = 'HDFC Bank'";
   db.query(sql, (err, results) => {
     if (err) throw err;
     if (results.length > 0) {
@@ -146,13 +160,33 @@ app.get('/api/credit-unions/hdfc-bank', (req, res) => {
   });
 });
 
+// Get details of Union Bank
+app.get('/api/credit-unions/union-bank', (req, res) => {
+  const sql = "SELECT * FROM banks WHERE name = 'Union Bank'";
+  db.query(sql, (err, results) => {
+    if (err) throw err;
+    if (results.length > 0) {
+      res.json(results[0]);
+    } else {
+      res.status(404).json({ message: 'Union Bank not found' });
+    }
+  });
+});
+
 // Add a review
 app.post('/api/reviews', (req, res) => {
-  const { name, review, rating, email, phoneNumber, website, address, profilePhoto } = req.body;
-  const sql = 'INSERT INTO reviews (name, review, rating, email, phoneNumber, website, address, profilePhoto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-  db.query(sql, [name, review, rating, email, phoneNumber, website, address, profilePhoto], (err, result) => {
-    if (err) throw err;
-    res.send('Review added...');
+  const { name, review, rating, email, phoneNumber, website, address, profilePhoto, bank } = req.body;
+
+  getBankId(bank, (err, bankId) => {
+    if (err) {
+      return res.status(500).send('Error retrieving bank ID');
+    }
+
+    const sql = 'INSERT INTO reviews (name, review, rating, email, phoneNumber, website, address, profilePhoto, bank_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    db.query(sql, [name, review, rating, email, phoneNumber, website, address, profilePhoto, bankId], (err, result) => {
+      if (err) throw err;
+      res.send('Review added...');
+    });
   });
 });
 

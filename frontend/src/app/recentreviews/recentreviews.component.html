@@ -1,4 +1,3 @@
-<!-- Review Form -->
 <form (ngSubmit)="onSubmit()" class="review-form">
   <label for="name">Name:</label>
   <input type="text" id="name" [(ngModel)]="review.name" name="name" required>
@@ -26,7 +25,17 @@
   <input type="text" id="address" [(ngModel)]="review.address" name="address">
 
   <label for="profilePhoto">Profile Photo:</label>
-  <input type="file" id="profilePhoto" (change)="handleFileInput($event)">
+  <input type="file" id="profilePhoto" (change)="handleFileInput($event)" accept="image/*">
+
+  <label for="bank">Bank:</label>
+  <select id="bank" [(ngModel)]="review.bank" name="bank">
+    <option *ngFor="let bank of banks" [value]="bank">{{ bank }}</option>
+  </select>
+
+  <app-hdfc *ngIf="review.bank === 'hdfc'"></app-hdfc>
+  <!-- <app-icicbank *ngIf="review.bank === 'ICICI'"></app-icicbank>
+  <app-indian-bank *ngIf="review.bank === 'indianbank'"></app-indian-bank>
+  <app-axis-bank *ngIf="review.bank === 'axisbank'"></app-axis-bank> -->
 
   <button type="submit">Submit Review</button>
 </form>

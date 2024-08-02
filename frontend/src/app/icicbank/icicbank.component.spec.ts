@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TotlereviewComponent } from './totlereview.component';
+import { IcicbankComponent } from './icicbank.component';
 
-describe('TotlereviewComponent', () => {
-  let component: TotlereviewComponent;
-  let fixture: ComponentFixture<TotlereviewComponent>;
+describe('IcicbankComponent', () => {
+  let component: IcicbankComponent;
+  let fixture: ComponentFixture<IcicbankComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TotlereviewComponent]
+      imports: [IcicbankComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(TotlereviewComponent);
+
+    fixture = TestBed.createComponent(IcicbankComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

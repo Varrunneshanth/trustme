@@ -11,9 +11,12 @@ export interface Review {
   website?: string;
   address?: string;
   profilePhoto?: string;
+  bank: string; // Add this field to store the bank name
 }
 
 export interface CreditUnion {
+  id: number;
+  allbank: any;
   name: string;
   trustscore: number;
   reviews: number;
@@ -47,6 +50,54 @@ export class ReviewService {
   // }
 
 
+
+
+
+  // private apiUrl = 'http://localhost:3000/api';
+
+  // constructor(private http: HttpClient) {}
+
+  // getReviews(): Observable<Review[]> {
+  //   return this.http.get<Review[]>(`${this.apiUrl}/reviews`);
+  // }
+
+  // addReview(review: Review): Observable<any> {
+  //   return this.http.post(`${this.apiUrl}/reviews`, review);
+  // }
+
+  // signIn(name: string, password: string): Observable<any> {
+  //   return this.http.post<any>(`${this.apiUrl}/auth/signin`, { name, password });
+  // }
+
+  // signUp(name: string, password: string): Observable<any> {
+  //   return this.http.post<any>(`${this.apiUrl}/auth/signup`, { name, password });
+  // }
+
+  // getCreditUnions(): Observable<CreditUnion[]> {
+  //   return this.http.get<CreditUnion[]>(`${this.apiUrl}/credit-unions`);
+  // }
+
+  // getHdfcBankDetails(): Observable<CreditUnion> {
+  //   return this.http.get<CreditUnion>(`${this.apiUrl}/credit-unions/hdfc-bank`);
+  // }
+
+  // getUnionBankDetails(): Observable<CreditUnion> {
+  //   return this.http.get<CreditUnion>(`${this.apiUrl}/credit-unions/union-bank`);
+  // }
+
+  // getIcicBankDetails(): Observable<CreditUnion> {
+  //   return this.http.get<CreditUnion>(`${this.apiUrl}/credit-unions/icic-bank`);
+  // }
+
+  // getAxisBankDetails(): Observable<CreditUnion> {
+  //   return this.http.get<CreditUnion>(`${this.apiUrl}/credit-unions/axis-bank`);
+  // }
+
+
+
+
+
+
   private apiUrl = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {}
@@ -71,7 +122,11 @@ export class ReviewService {
     return this.http.get<CreditUnion[]>(`${this.apiUrl}/credit-unions`);
   }
 
-  getHdfcBankDetails(): Observable<CreditUnion> {
-    return this.http.get<CreditUnion>(`${this.apiUrl}/credit-unions/hdfc-bank`);
+  getBankDetails(bankId: number): Observable<CreditUnion> {
+    return this.http.get<CreditUnion>(`${this.apiUrl}/credit-unions/${bankId}`);
+  }
+
+  getReviewsByBankId(bankId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/reviews?bank_id=${bankId}`);
   }
 }
