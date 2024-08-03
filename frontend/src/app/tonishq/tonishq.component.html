@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="content">
+      <div class="header-row">
+        <img src="/assets/projectfor trustme/tanishq.jpg" alt="Axis Bank">
+        <div *ngIf="TanishqJewellyDetails">
+          <h1>{{ TanishqJewellyDetails.name }}</h1>
+          <p>Trust Score: {{ TanishqJewellyDetails.trustscore }}</p>
+          <p>Reviews: {{ TanishqJewellyDetails.reviews }}</p>
+          <div class="stars">
+            <span *ngFor="let star of [1, 2, 3, 4, 5]" class="star" [class.filled]="star <= TanishqJewellyDetails.trustscore">★</span>
+          </div>
+        </div>
+      </div>
+      <div class="action-row">
+        <a href="https://www.Tanishq Jewelly.com/?utm_medium=company_profile&utm_source=trustpilot&utm_campaign=domain_click">
+          <button class="visit-button"><p>Tanishq Jewelly .COM</p>Visit this website</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="recentreviews">
+    <app-recentreviews></app-recentreviews>
+  </div>
+  
+  <div class="recent">
+    <div class="reviews">
+      <marquee behavior="scroll" direction="left" scrollamount="5">
+        <div class="reviews-container">
+          <div *ngFor="let review of filteredReviews" class="review-box">
+            <div class="profile-photo">
+              <img [src]="review.profilePhoto" alt="{{ review.name }}">
+            </div>
+            <div class="review-content">
+              <h3>{{ review.name }}</h3>
+              <p>{{ review.review }}</p>
+              <div class="rating">
+                <span *ngFor="let star of [1, 2, 3, 4, 5]" [ngClass]="{'filled': review.rating >= star}">★</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </marquee>
+    </div>
+  </div>
+  

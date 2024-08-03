@@ -98,13 +98,13 @@ export class ReviewService {
 
 
 
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = 'http://localhost:3025/api';
 
   constructor(private http: HttpClient) {}
 
-  getReviews(): Observable<Review[]> {
-    return this.http.get<Review[]>(`${this.apiUrl}/reviews`);
-  }
+  // getReviews(): Observable<Review[]> {
+  //   return this.http.get<Review[]>(`${this.apiUrl}/reviews=bank_id`);
+  // }
 
   addReview(review: Review): Observable<any> {
     return this.http.post(`${this.apiUrl}/reviews`, review);

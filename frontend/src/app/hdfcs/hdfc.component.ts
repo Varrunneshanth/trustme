@@ -1,31 +1,31 @@
 import { Component } from '@angular/core';
 import { ReviewService } from '../review.service';
-import { NgClass, NgFor, NgIf } from '@angular/common';
 import { RecentreviewsComponent } from "../recentreviews/recentreviews.component";
+import { NgClass, NgFor, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-indianbank',
+  selector: 'app-hdfc',
   standalone: true,
-  imports: [NgClass, NgIf, NgFor, RecentreviewsComponent],
-  templateUrl: './indianbank.component.html',
-  styleUrl: './indianbank.component.css'
+  imports: [RecentreviewsComponent,NgFor,NgIf,NgClass],
+  templateUrl: './hdfc.component.html',
+  styleUrl: './hdfc.component.css'
 })
-export class IndianbankComponent {
+export class HdfcComponent {
   reviews: any[] = [];
-  indianBankDetails: any;
+  hdfcBankDetails: any;
   filteredReviews: any[] = [];
-  bankId: number = 223; // ID for HDFC Bank
+  bankId: number = 221; // ID for HDFC Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
 
   ngOnInit(): void {
-    this.getindianBankDetails();
+    this.gethdfcBankDetails();
     this.loadReviews();
   }
 
-  getindianBankDetails(): void {
+  gethdfcBankDetails(): void {
     this.creditUnionService.getBankDetails(this.bankId).subscribe(data => {
-      this.indianBankDetails = data;
+      this.hdfcBankDetails = data;
     });
   }
 
@@ -33,11 +33,11 @@ export class IndianbankComponent {
     this.reviewService.getReviewsByBankId(this.bankId).subscribe((data: any[]) => {
       this.reviews = data;
       this.filterReviews();
-      
     });
   }
 
   filterReviews(): void {
     this.filteredReviews = this.reviews.filter(review => review.bank_id === this.bankId);
   }
+
 }

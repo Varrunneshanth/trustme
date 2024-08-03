@@ -2,7 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Review, ReviewService } from '../review.service';
-import { HdfcComponent } from "../hdfc/hdfc.component";
+import { HdfcComponent } from "../hdfcs/hdfc.component";
 
 @Component({
   selector: 'app-recentreviews',

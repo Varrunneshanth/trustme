@@ -10,7 +10,7 @@ import { Review, ReviewService } from '../review.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   // categories: { name: string, icon: string }[] = [
   //   { name: 'Bank', icon: 'assets/icons/bank.png' },
   //   { name: 'Car Dealer', icon: 'assets/icons/car-dealer.png' },
@@ -29,17 +29,17 @@ export class HomeComponent implements OnInit {
 //   }
 
 
-reviews: any[] = [];
+// reviews: any[] = [];
 
-  constructor(private reviewService: ReviewService) { }
+//   constructor(private reviewService: ReviewService) { }
 
-  ngOnInit(): void {
-    this.loadReviews();
-  }
+//   ngOnInit(): void {
+//     this.loadReviews();
+//   }
 
-  loadReviews(): void {
-    this.reviewService.getReviews().subscribe((data: any[]) => {
-      this.reviews = data;
-    });
-  }
+//   loadReviews(): void {
+//     this.reviewService.getReviews().subscribe((data: any[]) => {
+//       this.reviews = data;
+//     });
+//   }
 }

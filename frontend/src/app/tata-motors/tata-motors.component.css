@@ -1,0 +1,142 @@
+/* Container and Content Styling */
+.container {
+    max-width: 100%;
+    padding: 10px;
+    background: #fcfcfd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(15, 3, 125);
+    margin: 10px 150px;
+    position: relative;
+}
+.container:hover{
+    box-sizing: rgb(16, 22, 138);
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-row h1 {
+    margin: 0 20px 0 0;
+    font-size: 24px;
+}
+
+.header-row img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Action Row Styling */
+.action-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1; /* Default z-index */
+}
+
+.visit-button {
+    padding: 40px 80px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #0b0b0b;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.visit-button:hover {
+    background-color: #d0e2f6;
+}
+
+.reviews-count {
+    font-size: 16px;
+    color: #333;
+}
+
+.stars {
+    display: flex;
+}
+
+.star {
+    font-size: 20px;
+    color: #ccc;
+}
+
+.star.filled {
+    color: #f39c12;
+}
+.recentreviews{
+    margin-left: 100px;
+    margin-top: 40px;
+}
+.recentreviews:hover{
+    box-shadow: #f39c12;
+}
+p{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* review contant */
+
+.reviews-container {
+    flex-wrap: wrap;
+    display: grid;
+    gap: 10px;
+  
+  }
+  
+  .review-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .profile-photo img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .review-content {
+    margin-top: 10px;
+  }
+  .rating {
+    display: flex;
+  }
+  
+  .rating span {
+    font-size: 20px;
+    color: #ddd;
+  }
+  
+  .rating span.filled {
+    color: rgb(19, 10, 255);
+  }
+  
+  .rating span.one-star.filled {
+    color: red;
+  }
+  
+  .rating span.two-star.filled {
+    color: rgb(255, 115, 0);
+  }
+  
+  .rating span.three-star.filled {
+    color: yellow;
+  }
+  
+  .rating span.four-star.filled {
+    color: lightgreen;
+  }
+  
+  .rating span.five-star.filled {
+    color: green;
+  }

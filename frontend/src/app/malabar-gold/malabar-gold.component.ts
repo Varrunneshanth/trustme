@@ -1,31 +1,31 @@
 import { Component } from '@angular/core';
 import { ReviewService } from '../review.service';
-import { NgClass, NgFor, NgIf } from '@angular/common';
 import { RecentreviewsComponent } from "../recentreviews/recentreviews.component";
+import { NgClass, NgFor, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-indianbank',
+  selector: 'app-malabar-gold',
   standalone: true,
-  imports: [NgClass, NgIf, NgFor, RecentreviewsComponent],
-  templateUrl: './indianbank.component.html',
-  styleUrl: './indianbank.component.css'
+  imports: [RecentreviewsComponent,NgClass,NgIf,NgFor],
+  templateUrl: './malabar-gold.component.html',
+  styleUrl: './malabar-gold.component.css'
 })
-export class IndianbankComponent {
+export class MalabarGoldComponent {
   reviews: any[] = [];
-  indianBankDetails: any;
   filteredReviews: any[] = [];
-  bankId: number = 223; // ID for HDFC Bank
+  malabargobJewellyDetails: any;
+  bankId: number = 222; // ID for Axis Bank
 
-  constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
+  constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) {}
 
   ngOnInit(): void {
-    this.getindianBankDetails();
+    this.getmalabargobJewellyDetails();
     this.loadReviews();
   }
 
-  getindianBankDetails(): void {
+  getmalabargobJewellyDetails(): void {
     this.creditUnionService.getBankDetails(this.bankId).subscribe(data => {
-      this.indianBankDetails = data;
+      this.malabargobJewellyDetails = data;
     });
   }
 
@@ -33,11 +33,11 @@ export class IndianbankComponent {
     this.reviewService.getReviewsByBankId(this.bankId).subscribe((data: any[]) => {
       this.reviews = data;
       this.filterReviews();
-      
     });
   }
 
   filterReviews(): void {
     this.filteredReviews = this.reviews.filter(review => review.bank_id === this.bankId);
   }
+
 }

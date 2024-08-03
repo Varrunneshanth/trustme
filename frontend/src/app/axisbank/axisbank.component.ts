@@ -11,17 +11,66 @@ import { RecentreviewsComponent } from "../recentreviews/recentreviews.component
   styleUrl: './axisbank.component.css'
 })
 export class AxisbankComponent {
+  // reviews: any[] = [];
+  // axisBankDetails: any;
+  // bankId: number = 222; // ID for Axis Bank
+
+  // constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
+
+  // ngOnInit(): void {
+  //   this.getaxisBankDetails();
+  //   this.loadReviews();
+  // }
+
+
+  // getaxisBankDetails(): void {
+  //   this.creditUnionService.getBankDetails(this.bankId).subscribe(data => {
+  //     this.axisBankDetails = data;
+  //   });
+  // }
+
+  // loadReviews(): void {
+  //   this.reviewService.getReviewsByBankId(this.bankId).subscribe((data: any[]) => {
+  //     this.reviews = data;
+  //   });
+  // }
+
+  // reviews: any[] = [];
+  // axisBankDetails: any;
+  // bankId: number = 222; // ID for Axis Bank
+
+  // constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
+
+  // ngOnInit(): void {
+  //   this.getaxisBankDetails();
+  //   this.loadReviews();
+  // }
+
+  // getaxisBankDetails(): void {
+  //   this.creditUnionService.getBankDetails(this.bankId).subscribe(data => {
+  //     this.axisBankDetails = data;
+  //   });
+  // }
+
+  // loadReviews(): void {
+  //   this.reviewService.getReviewsByBankId(this.bankId).subscribe((data: any[]) => {
+  //     this.reviews = data;
+  //   });
+  // }
+
+
+
   reviews: any[] = [];
+  filteredReviews: any[] = [];
   axisBankDetails: any;
   bankId: number = 222; // ID for Axis Bank
 
-  constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
+  constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) {}
 
   ngOnInit(): void {
     this.getaxisBankDetails();
     this.loadReviews();
   }
-
 
   getaxisBankDetails(): void {
     this.creditUnionService.getBankDetails(this.bankId).subscribe(data => {
@@ -32,6 +81,11 @@ export class AxisbankComponent {
   loadReviews(): void {
     this.reviewService.getReviewsByBankId(this.bankId).subscribe((data: any[]) => {
       this.reviews = data;
+      this.filterReviews();
     });
+  }
+
+  filterReviews(): void {
+    this.filteredReviews = this.reviews.filter(review => review.bank_id === this.bankId);
   }
 }

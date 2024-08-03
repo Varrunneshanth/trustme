@@ -4,28 +4,29 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
 import { RecentreviewsComponent } from "../recentreviews/recentreviews.component";
 
 @Component({
-  selector: 'app-indianbank',
+  selector: 'app-lifestyle',
   standalone: true,
-  imports: [NgClass, NgIf, NgFor, RecentreviewsComponent],
-  templateUrl: './indianbank.component.html',
-  styleUrl: './indianbank.component.css'
+  imports: [NgIf, NgFor, NgClass, RecentreviewsComponent],
+  templateUrl: './lifestyle.component.html',
+  styleUrl: './lifestyle.component.css'
 })
-export class IndianbankComponent {
+export class LifestyleComponent {
   reviews: any[] = [];
-  indianBankDetails: any;
+  lifestyleclothDetails: any;
   filteredReviews: any[] = [];
-  bankId: number = 223; // ID for HDFC Bank
+  bankId: number = 225; // ID for Axis Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
 
   ngOnInit(): void {
-    this.getindianBankDetails();
+    this.lifestyleclothDetails();
     this.loadReviews();
   }
 
-  getindianBankDetails(): void {
+
+  getlifestyleclothDetails(): void {
     this.creditUnionService.getBankDetails(this.bankId).subscribe(data => {
-      this.indianBankDetails = data;
+      this.lifestyleclothDetails = data;
     });
   }
 
@@ -33,7 +34,6 @@ export class IndianbankComponent {
     this.reviewService.getReviewsByBankId(this.bankId).subscribe((data: any[]) => {
       this.reviews = data;
       this.filterReviews();
-      
     });
   }
 

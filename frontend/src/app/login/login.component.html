@@ -9,7 +9,7 @@
     <div *ngIf="isSignIn">
       <form (ngSubmit)="onSignIn()" [formGroup]="signInForm">
         <div class="form-group">
-          <input type="text" placeholder="Enter Name" formControlName="signInName" required>
+          <input type="text" placeholder="Enter Your UserName" formControlName="signInName" required>
         </div>
         <div class="form-group">
           <input type="password" placeholder="Enter Password" formControlName="signInPassword" required>
@@ -24,7 +24,7 @@
     <div *ngIf="!isSignIn">
       <form (ngSubmit)="onSignUp()" [formGroup]="signUpForm">
         <div class="form-group">
-          <input type="text" placeholder="Name" formControlName="signUpName" required>
+          <input type="text" placeholder="Enter Your UserName" formControlName="signUpName" required>
         </div>
         <div class="form-group">
           <input type="password" placeholder="Enter Password" formControlName="signUpPassword" required>

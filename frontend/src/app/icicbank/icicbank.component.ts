@@ -13,7 +13,8 @@ import { RecentreviewsComponent } from "../recentreviews/recentreviews.component
 export class IcicbankComponent {
   reviews: any[] = [];
   icicBankDetails: any;
-  bankId: number = 224; // ID for HDFC Bank
+  bankId: number = 224;
+  filteredReviews: any[] = []; // ID for HDFC Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
 
@@ -31,6 +32,12 @@ export class IcicbankComponent {
   loadReviews(): void {
     this.reviewService.getReviewsByBankId(this.bankId).subscribe((data: any[]) => {
       this.reviews = data;
+      this.filterReviews();
+      
     });
+  }
+
+  filterReviews(): void {
+    this.filteredReviews = this.reviews.filter(review => review.bank_id === this.bankId);
   }
 }
