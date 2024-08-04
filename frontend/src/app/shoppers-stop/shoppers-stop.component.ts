@@ -14,7 +14,7 @@ export class ShoppersStopComponent {
   reviews: any[] = [];
   shoppersclothingDetails: any;
   filteredReviews: any[] = [];
-  bankId: number = 225; // ID for Axis Bank
+  bankId: number = 443; // ID for Axis Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
 

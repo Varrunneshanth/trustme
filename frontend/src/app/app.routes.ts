@@ -26,10 +26,11 @@ import { KalyanComponent } from './kalyan/kalyan.component';
 export const routes: Routes = [
     { path: '', component: LoginComponent },
     { path: 'forgetpassword', component: ForgetpasswordComponent },
-    { path: 'verify', component: VerifyComponent },
+    { path: 'verify', component: VerifyComponent},
     { path: 'categories', component: CategoriesComponent },
     { path: 'recentreviews', component: RecentreviewsComponent },
     { path: 'bestofbank', component: BestofbankComponent },
+
     //bank components
     { path: 'hdfc', component:HdfcComponent},
     {path:'axisbanks',component:AxisbankComponent},

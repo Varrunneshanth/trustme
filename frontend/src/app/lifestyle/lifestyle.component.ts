@@ -14,7 +14,7 @@ export class LifestyleComponent {
   reviews: any[] = [];
   lifestyleclothDetails: any;
   filteredReviews: any[] = [];
-  bankId: number = 225; // ID for Axis Bank
+  bankId: number = 444; // ID for Axis Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
 

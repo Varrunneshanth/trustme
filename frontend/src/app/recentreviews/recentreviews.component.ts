@@ -1,28 +1,63 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Review, ReviewService } from '../review.service';
-import { HdfcComponent } from "../hdfcs/hdfc.component";
+import { ReviewService } from '../review.service';
 
+interface Review {
+  name: string;
+  review: string;
+  rating: number;
+  email: string;
+  phoneNumber: string;
+  website: string;
+  address: string;
+  profilePhoto: string;
+  bank: string;
+  item: string;
+  category: string;
+}
 @Component({
   selector: 'app-recentreviews',
   standalone: true,
-  imports: [FormsModule, NgFor, ReactiveFormsModule, NgIf, FormsModule, HdfcComponent],
+  imports: [FormsModule, NgFor, ReactiveFormsModule, NgIf, FormsModule],
   templateUrl: './recentreviews.component.html',
   styleUrl: './recentreviews.component.css'
 })
 export class RecentreviewsComponent {
-
-review: Review = { name: '', review: '', rating: 0, email: '', phoneNumber: '', website: '', address: '', profilePhoto: '', bank: '' };
+  review: Review = { 
+    name: '', 
+    review: '', 
+    rating: 0, 
+    email: '', 
+    phoneNumber: '', 
+    website: '', 
+    address: '', 
+    profilePhoto: '', 
+    bank: '',
+    item: '',
+    category: ''
+  };
   showModal: boolean = false;
-  banks: string[] = ['HDFC', 'ICICI', 'UNION', 'SBI'];
+  banks: string[] = ['HDFC', 'ICICI', 'AXIS', 'INDIANBANK','Maruthisuzuki','Hyundai','Tatamotors','mahindra','Fabindia','Pantaloons','shopperStop','lifestyle','Tanishq','Kalayanjewelles','MalabarGold','Pcjewllers'];
 
   constructor(private reviewService: ReviewService) { }
 
   onSubmit() {
     this.reviewService.addReview(this.review).subscribe(response => {
       console.log('Review submitted', response);
-      this.review = { name: '', review: '', rating: 0, email: '', phoneNumber: '', website: '', address: '', profilePhoto: '', bank: '' };
+      this.review = { 
+        name: '', 
+        review: '', 
+        rating: 0, 
+        email: '', 
+        phoneNumber: '', 
+        website: '', 
+        address: '', 
+        profilePhoto: '', 
+        bank: '',
+        item: '',
+        category: ''
+      };
       this.showModal = true;
     });
   }

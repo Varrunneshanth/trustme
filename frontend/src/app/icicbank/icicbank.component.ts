@@ -13,7 +13,7 @@ import { RecentreviewsComponent } from "../recentreviews/recentreviews.component
 export class IcicbankComponent {
   reviews: any[] = [];
   icicBankDetails: any;
-  bankId: number = 224;
+  bankId: number = 223;
   filteredReviews: any[] = []; // ID for HDFC Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }

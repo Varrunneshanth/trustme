@@ -14,7 +14,7 @@ export class TonishqComponent {
   reviews: any[] = [];
   filteredReviews: any[] = [];
   TanishqJewellyDetails: any;
-  bankId: number = 222; // ID for Axis Bank
+  bankId: number = 451; // ID for Axis Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) {}
 

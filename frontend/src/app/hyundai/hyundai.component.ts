@@ -14,7 +14,7 @@ export class HyundaiComponent {
   reviews: any[] = [];
   hyundaicardealerDetails: any;
   filteredReviews: any[] = [];
-  bankId: number = 225; // ID for Axis Bank
+  bankId: number = 332; // ID for Axis Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
 

@@ -13,7 +13,7 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
 export class MahindraComponent {
   reviews: any[] = [];
   mahindracardealerDetails: any;
-  bankId: number = 225; // ID for Axis Bank
+  bankId: number = 334; // ID for Axis Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
 

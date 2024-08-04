@@ -14,7 +14,7 @@ export class PcJComponent {
   reviews: any[] = [];
   filteredReviews: any[] = [];
   pcJewellyDetails: any;
-  bankId: number = 222; // ID for Axis Bank
+  bankId: number = 554; // ID for Axis Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) {}
 

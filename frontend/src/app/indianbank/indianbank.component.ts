@@ -14,7 +14,7 @@ export class IndianbankComponent {
   reviews: any[] = [];
   indianBankDetails: any;
   filteredReviews: any[] = [];
-  bankId: number = 223; // ID for HDFC Bank
+  bankId: number = 224; // ID for HDFC Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
 

@@ -14,7 +14,7 @@ export class KalyanComponent {
   reviews: any[] = [];
   filteredReviews: any[] = [];
   kalyanJewellyDetails: any;
-  bankId: number = 222; // ID for Axis Bank
+  bankId: number = 552; // ID for Axis Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) {}
 

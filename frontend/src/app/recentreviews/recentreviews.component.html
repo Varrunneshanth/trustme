@@ -28,14 +28,9 @@
   <input type="file" id="profilePhoto" (change)="handleFileInput($event)" accept="image/*">
 
   <label for="bank">Bank:</label>
-  <select id="bank" [(ngModel)]="review.bank" name="bank">
+  <select id="bank" [(ngModel)]="review.bank" name="bank" required>
     <option *ngFor="let bank of banks" [value]="bank">{{ bank }}</option>
   </select>
-
-  <app-hdfc *ngIf="review.bank === 'hdfc'"></app-hdfc>
-  <!-- <app-icicbank *ngIf="review.bank === 'ICICI'"></app-icicbank>
-  <app-indian-bank *ngIf="review.bank === 'indianbank'"></app-indian-bank>
-  <app-axis-bank *ngIf="review.bank === 'axisbank'"></app-axis-bank> -->
 
   <button type="submit">Submit Review</button>
 </form>

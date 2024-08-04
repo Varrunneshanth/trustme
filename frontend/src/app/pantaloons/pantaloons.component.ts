@@ -14,7 +14,7 @@ export class PantaloonsComponent {
   reviews: any[] = [];
   pantaloonsaclothingDetails: any;
   filteredReviews: any[] = [];
-  bankId: number = 225; // ID for Axis Bank
+  bankId: number = 442; // ID for Axis Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) { }
 

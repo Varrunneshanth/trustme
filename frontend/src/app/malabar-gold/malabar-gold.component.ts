@@ -14,7 +14,7 @@ export class MalabarGoldComponent {
   reviews: any[] = [];
   filteredReviews: any[] = [];
   malabargobJewellyDetails: any;
-  bankId: number = 222; // ID for Axis Bank
+  bankId: number = 553; // ID for Axis Bank
 
   constructor(private creditUnionService: ReviewService, private reviewService: ReviewService) {}
 
