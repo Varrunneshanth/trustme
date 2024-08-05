@@ -1,3 +1,0 @@
-spring.application.name=trustmeapplication
-spring.data.mongodb.uri=mongodb://localhost:27017/your_database
-spring.data.mongodb.database=your_database

@@ -1,9 +1,0 @@
-package com.example.demo.service;
-
-import com.example.demo.model.Review;
-import java.util.List;
-
-public interface ReviewService {
-    List<Review> getReviewsByCompanyId(String companyid);
-    Review addReview(Review review);
-}
