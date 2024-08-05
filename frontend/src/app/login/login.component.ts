@@ -20,12 +20,13 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private authService: ReviewService, private router: Router) {
     this.signInForm = this.fb.group({
-      signInName: ['', Validators.required],
+      signInEmail: ['', [Validators.required, Validators.email]],
       signInPassword: ['', Validators.required]
     });
 
     this.signUpForm = this.fb.group({
       signUpName: ['', Validators.required],
+      signUpEmail: ['', [Validators.required, Validators.email]],
       signUpPassword: ['', Validators.required],
       confirmPassword: ['', Validators.required]
     }, { validator: this.passwordMatchValidator });
@@ -44,15 +45,15 @@ export class LoginComponent {
 
   onSignIn() {
     if (this.signInForm.valid) {
-      const { signInName, signInPassword } = this.signInForm.value;
-      this.authService.signIn(signInName, signInPassword).subscribe(
+      const { signInEmail, signInPassword } = this.signInForm.value;
+      this.authService.login(signInEmail, signInPassword).subscribe(
         response => {
           console.log('Sign in successful', response);
           this.router.navigate(['/categories']);
         },
         error => {
           console.error('Sign in error', error);
-          this.signInError = 'Invalid credentials. Please provide the correct name and password.';
+          this.signInError = 'Invalid credentials. Please provide the correct email and password.';
         }
       );
     }
@@ -60,8 +61,8 @@ export class LoginComponent {
 
   onSignUp() {
     if (this.signUpForm.valid) {
-      const { signUpName, signUpPassword } = this.signUpForm.value;
-      this.authService.signUp(signUpName, signUpPassword).subscribe(
+      const { signUpName, signUpEmail, signUpPassword } = this.signUpForm.value;
+      this.authService.signup({ username: signUpName, email: signUpEmail, password: signUpPassword }).subscribe(
         response => {
           console.log('Sign up successful', response);
           this.toggleForm('signIn');

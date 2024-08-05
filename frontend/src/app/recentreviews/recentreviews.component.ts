@@ -43,7 +43,7 @@ export class RecentreviewsComponent {
   constructor(private reviewService: ReviewService) { }
 
   onSubmit() {
-    this.reviewService.addReview(this.review).subscribe(response => {
+    this.reviewService.addReview(this.review).subscribe((response: any) => {
       console.log('Review submitted', response);
       this.review = { 
         name: '', 

@@ -31,6 +31,10 @@ export interface CreditUnion {
   providedIn: 'root'
 })
 export class ReviewService {
+  addReview: any;
+  signIn(signInEmail: any, signInPassword: any) {
+    throw new Error('Method not implemented.');
+  }
   private baseUrl = 'http://localhost:8080/api';
 
 
@@ -81,12 +85,12 @@ getReviews(): Observable<Review[]> {
 //   return this.http.post(`${this.apiUrl}/reviews`, review);
 // }
 
-signIn(name: string, password: string): Observable<any> {
-  return this.http.post<any>(`${this.apiUrl}/auth/signin`, { name, password });
+login(email: string, password: string): Observable<any> {
+  return this.http.post<any>(`${this.apiUrl}/login`, { email, password });
 }
 
-signUp(name: string, password: string): Observable<any> {
-  return this.http.post<any>(`${this.apiUrl}/auth/signup`, { name, password });
+signup(user: { username: string, email: string, password: string }): Observable<any> {
+  return this.http.post<any>(`${this.apiUrl}/signup`, user);
 }
 
 getCreditUnions(): Observable<CreditUnion[]> {
