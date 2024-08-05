@@ -1,0 +1,66 @@
+package com.example.demo.controller;
+
+import com.example.demo.model.Review;
+import com.example.demo.service.ReviewService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/company")
+public class ReviewController {
+
+    @Autowired
+    private ReviewService reviewService;
+
+    // Get all reviews for a specific company
+    @GetMapping("/{companyid}/reviews")
+    public ResponseEntity<List<Review>> getReviewsByCompanyId(@PathVariable String companyid) {
+        List<Review> reviews = reviewService.getReviewsByCompanyId(companyid);
+        if (reviews.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(reviews);
+    }
+
+    // Get a review by reviewid
+    @GetMapping("/review/{reviewid}")
+    public ResponseEntity<Review> getReviewById(@PathVariable String reviewid) {
+        Review review = reviewService.getReviewById(reviewid);
+        if (review == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(review);
+    }
+
+    // Submit a new review
+    @PostMapping("/{companyid}/review")
+    public ResponseEntity<Review> submitReview(@PathVariable String companyid, @RequestBody Review review) {
+        review.setCompanyid(companyid);
+        Review createdReview = reviewService.addReview(review);
+        return ResponseEntity.ok(createdReview);
+    }
+
+    // Update an existing review
+    @PutMapping("/review/{reviewid}")
+    public ResponseEntity<Review> updateReview(@PathVariable String reviewid, @RequestBody Review review) {
+        review.setReviewid(reviewid);
+        Review updatedReview = reviewService.updateReview(review);
+        if (updatedReview == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(updatedReview);
+    }
+
+    // Delete a review
+    @DeleteMapping("/review/{reviewid}")
+    public ResponseEntity<Void> deleteReview(@PathVariable String reviewid) {
+        boolean deleted = reviewService.deleteReview(reviewid);
+        if (deleted) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+}

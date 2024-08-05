@@ -1,0 +1,33 @@
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.model.Review;
+import com.example.demo.service.ReviewService;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/review")
+public class ReviewController {
+    
+    @Autowired
+    private ReviewService reviewService;
+
+    // Method to get all reviews for a specific review ID
+    @GetMapping("/{reviewid}")
+    public ResponseEntity<Review> getReviewById(@PathVariable String reviewid) {
+        Review review = reviewService.getReviewById(reviewid);
+        return review != null ? ResponseEntity.ok(review) : ResponseEntity.notFound().build();
+    }
+    
+    // Method to submit a review
+    @PostMapping("/{reviewid}")
+    public ResponseEntity<Review> submitReview(@PathVariable String reviewid, @RequestBody Review review) {
+        review.setReviewid(reviewid);
+        Review createdReview = reviewService.addReview(review);
+        return ResponseEntity.ok(createdReview);
+    }
+}

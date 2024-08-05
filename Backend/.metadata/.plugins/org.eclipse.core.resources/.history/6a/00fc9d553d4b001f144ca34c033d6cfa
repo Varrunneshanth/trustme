@@ -1,0 +1,12 @@
+package com.example.demo.service;
+
+import com.example.demo.model.Company;
+import java.util.List;
+
+public interface CompanyService {
+    List<Company> getAllCompanies();
+    Company getCompanyById(String companyid);
+    Company updateCompany(String companyid, Company company);
+    Company createCompany(Company company);
+    boolean deleteCompany(String companyid);
+}

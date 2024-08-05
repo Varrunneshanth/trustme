@@ -1,0 +1,28 @@
+package com.example.demo.controller;
+
+import com.example.demo.model.Review;
+import com.example.demo.service.ReviewService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+public class ReviewController {
+
+    @Autowired
+    private ReviewService reviewService;
+
+    @PostMapping("/company/{companyid}/review")
+    public String submitReview(@PathVariable String companyid, @ModelAttribute Review review, Model model) {
+        review.setCompanyid(companyid);
+        reviewService.addReview(review);
+        return "redirect:/company/" + companyid;
+    }
+
+    @GetMapping("/company/{companyid}/reviews")
+    public String getReviews(@PathVariable String companyid, Model model) {
+        model.addAttribute("reviews", reviewService.getReviewsByCompanyId(companyid));
+        return "company-reviews"; // Assuming you have a Thymeleaf template named company-reviews.html
+    }
+}

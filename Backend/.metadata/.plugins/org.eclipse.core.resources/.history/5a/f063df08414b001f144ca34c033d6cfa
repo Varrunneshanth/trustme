@@ -1,0 +1,31 @@
+package com.example.demo.serviceimpl;
+
+import com.example.demo.model.Review;
+import com.example.demo.repository.ReviewRepository;
+import com.example.demo.service.ReviewService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
+
+@Service
+public class ReviewServiceImpl implements ReviewService {
+
+    @Autowired
+    private ReviewRepository reviewRepository;
+
+    @Override
+    public void addReview(Review review) {
+        // Set creation and update timestamps
+        Date now = new Date();
+        review.setCreated_at(now);
+        review.setUpdated_at(now);
+        reviewRepository.save(review);
+    }
+
+    @Override
+    public List<Review> getReviewsByCompanyId(String companyid) {
+        return reviewRepository.findByCompanyid(companyid);
+    }
+}

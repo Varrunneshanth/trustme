@@ -1,0 +1,31 @@
+package com.example.demo.service;
+
+import com.example.demo.model.Company;
+import com.example.demo.repository.CompanyRepository;
+import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CompanyServiceImpl implements CompanyService {
+
+    @Autowired
+    private CompanyRepository companyRepository;
+
+    @Override
+    public List<Company> getAllCompanies() {
+        return companyRepository.findAll();
+    }
+
+    @Override
+    public Company getCompanyById(String companyid) {
+        // Validate if companyid is a valid ObjectId
+        if (!ObjectId.isValid(companyid)) {
+            return null; // Or throw a custom exception if preferred
+        }
+
+        return companyRepository.findById(companyid).orElse(null);
+    }
+}

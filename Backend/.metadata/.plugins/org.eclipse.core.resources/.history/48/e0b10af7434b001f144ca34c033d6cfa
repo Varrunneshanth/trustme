@@ -1,0 +1,6 @@
+import java.util.List;
+
+public interface ReviewService {
+    List<Review> getReviewsByCompanyId(String companyid);
+    Review addReview(Review review);
+}
