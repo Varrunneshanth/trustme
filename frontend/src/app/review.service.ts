@@ -31,6 +31,10 @@ export interface CreditUnion {
   providedIn: 'root'
 })
 export class ReviewService {
+<<<<<<< Updated upstream
+=======
+  private baseUrl = 'http://localhost:8080/api';
+>>>>>>> Stashed changes
 
   // private apiUrl = 'http://localhost:3025/api';
   // isAuthenticated: any;
@@ -41,6 +45,7 @@ export class ReviewService {
   //   return this.http.get<Review[]>(`${this.apiUrl}/reviews=bank_id`);
   // }
 
+<<<<<<< Updated upstream
   // addReview(review: Review): Observable<any> {
   //   return this.http.post(`${this.apiUrl}/reviews`, review);
   // }
@@ -73,6 +78,15 @@ constructor(private http: HttpClient) {}
 
 getReviews(): Observable<Review[]> {
   return this.http.get<Review[]>(`${this.apiUrl}/reviews`);
+=======
+  signIn(name: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/test/signin`, { name, password });
+  }
+
+  signUp(name: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/test/signup`, { name, password });
+  }
+>>>>>>> Stashed changes
 }
 
 addReview(review: Review): Observable<any> {
