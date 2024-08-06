@@ -31,7 +31,7 @@ export interface CreditUnion {
   providedIn: 'root'
 })
 export class ReviewService {
-  addReview: any;
+ 
   signIn(signInEmail: any, signInPassword: any) {
     throw new Error('Method not implemented.');
   }
@@ -72,10 +72,32 @@ export class ReviewService {
   // }
   
 
-private apiUrl = 'http://localhost:8080/api';
-isAuthenticated: any;
+  private apiUrl = 'http://localhost:8080/api';
 
-constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
+
+  login(email: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/login`, { email, password });
+  }
+
+  signup(user: { username: string, email: string, password: string }): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/signup`, user, { responseType: 'text' as 'json' });
+  }
+
+  addReview(review: Review): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/reviews`, review);
+  }
+
+  // getCompaniesByCategory(category: string): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}/category/${category}`);
+  // }
+
+  // getCompaniesBySubcategory(subcategory: string): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}/subcategory/${subcategory}`);
+  // }
+  
+
+
 
 getReviews(): Observable<Review[]> {
   return this.http.get<Review[]>(`${this.apiUrl}/reviews`);
@@ -85,13 +107,13 @@ getReviews(): Observable<Review[]> {
 //   return this.http.post(`${this.apiUrl}/reviews`, review);
 // }
 
-login(email: string, password: string): Observable<any> {
-  return this.http.post<any>(`${this.apiUrl}/login`, { email, password });
-}
+// login(email: string, password: string): Observable<any> {
+//   return this.http.post<any>(`${this.apiUrl}/login`, { email, password });
+// }
 
-signup(user: { username: string, email: string, password: string }): Observable<any> {
-  return this.http.post<any>(`${this.apiUrl}/signup`, user);
-}
+// signup(user: { username: string, email: string, password: string }): Observable<any> {
+//   return this.http.post<any>(`${this.apiUrl}/signup`, user);
+// }
 
 getCreditUnions(): Observable<CreditUnion[]> {
   return this.http.get<CreditUnion[]>(`${this.apiUrl}/credit-unions`);

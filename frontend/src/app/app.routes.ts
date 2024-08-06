@@ -2,10 +2,10 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { VerifyComponent } from './verify/verify.component';
-import { CategoriesComponent } from './categories/categories.component';
+// import { CategoriesComponent } from './categories/categories.component';
 import { RecentreviewsComponent } from './recentreviews/recentreviews.component';
 import { BestofbankComponent } from './bestofbank/bestofbank.component';
-import { AxisbankComponent } from './axisbank/axisbank.component';
+// import { AxisbankComponent } from './axisbank/axisbank.component';
 import { IcicbankComponent } from './icicbank/icicbank.component';
 import { IndianbankComponent } from './indianbank/indianbank.component';
 import { HdfcComponent } from './hdfcs/hdfc.component';
@@ -27,13 +27,13 @@ export const routes: Routes = [
     { path: '', component: LoginComponent },
     { path: 'forgetpassword', component: ForgetpasswordComponent },
     { path: 'verify', component: VerifyComponent},
-    { path: 'categories', component: CategoriesComponent },
+    // { path: 'categories', component: CategoriesComponent },
     { path: 'recentreviews', component: RecentreviewsComponent },
     { path: 'bestofbank', component: BestofbankComponent },
 
     //bank components
     { path: 'hdfc', component:HdfcComponent},
-    {path:'axisbanks',component:AxisbankComponent},
+    // {path:'axisbanks',component:AxisbankComponent},
     { path:'icicbank', component:IcicbankComponent},
     { path:'indianbank', component:IndianbankComponent},
     //car components
@@ -51,5 +51,5 @@ export const routes: Routes = [
     { path:'malabar-gold',component:MalabarGoldComponent},
     { path:'pc-j',component:PcJComponent},
     { path:'kalyan',component:KalyanComponent},
-    { path: '**', redirectTo: 'categories' }
+    { path: '**', redirectTo: 'categories' },
 ]

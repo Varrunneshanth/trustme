@@ -1,0 +1,58 @@
+
+<!-- company-details.component.html -->
+
+<div *ngIf="selectedCompany" class="company-details">
+    <div class="content">
+      <div class="header-row">
+        <!-- <img [src]="selectedCompany.logo" alt="{{ selectedCompany.name }}" class="company-logo"> -->
+        <div>
+          <h1>{{ selectedCompany.name }}</h1>
+          <p>Phone: {{ selectedCompany.phone }}</p>
+          <p>Address: {{ selectedCompany.address }}</p>
+        </div>
+      </div>
+      
+      <!-- Review Form -->
+      <form (ngSubmit)="onSubmit()" class="review-form">
+        <label for="comment">Comment:</label>
+        <textarea id="comment" [(ngModel)]="review.comment" name="comment" required></textarea>
+        
+        <label for="rating">Rating:</label>
+        <div class="rating">
+          <span *ngFor="let star of [1, 2, 3, 4, 5]" 
+                (click)="review.rating = star"
+                [class.filled]="star <= review.rating">&#9733;</span>
+        </div>
+        
+        <button type="submit">Submit Review</button>
+      </form>
+      
+      <!-- Modal -->
+      <div *ngIf="showModal" class="modal" (click)="closeModal()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          <span class="close" (click)="closeModal()">&times;</span>
+          <h2>Review Submitted!</h2>
+          <p>Your review has been successfully submitted.</p>
+        </div>
+      </div>
+      
+      <!-- Display Recent Reviews -->
+      <div class="recent">
+        <div *ngFor="let review of reviews" class="review-box">
+          <div class="review-content">
+            <p>{{ review.comment }}</p>
+            <div class="rating">
+              <span *ngFor="let star of [1, 2, 3, 4, 5]" 
+                    [ngClass]="{'filled': review.rating >= star}">
+                ★
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      
+      
+  
+  

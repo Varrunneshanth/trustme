@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" class="review-form">
+<!-- <form (ngSubmit)="onSubmit()" class="review-form">
   <label for="name">Name:</label>
   <input type="text" id="name" [(ngModel)]="review.name" name="name" required>
 
@@ -33,6 +33,33 @@
   </select>
 
   <button type="submit">Submit Review</button>
+</form> -->
+
+<!-- Modal -->
+<!-- <div *ngIf="showModal" class="modal" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Review Submitted!</h2>
+    <p>Your review has been successfully submitted.</p>
+  </div>
+</div> -->
+
+
+
+
+
+<form (ngSubmit)="onSubmit()" class="review-form">
+  <label for="review">comment:</label>
+  <textarea id="review" [(ngModel)]="review.comment" name="review" required></textarea>
+
+  <label for="rating">Rating:</label>
+  <div class="rating">
+    <span *ngFor="let star of [1, 2, 3, 4, 5]" 
+          (click)="review.rating = star"
+          [class.filled]="star <= review.rating">&#9733;</span>
+  </div>
+
+  <button type="submit">Submit Review</button>
 </form>
 
 <!-- Modal -->
@@ -43,3 +70,4 @@
     <p>Your review has been successfully submitted.</p>
   </div>
 </div>
+

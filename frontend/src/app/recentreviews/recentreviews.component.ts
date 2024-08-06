@@ -5,7 +5,8 @@ import { ReviewService } from '../review.service';
 
 interface Review {
   name: string;
-  review: string;
+  comment: string;
+  review:string,
   rating: number;
   email: string;
   phoneNumber: string;
@@ -26,7 +27,8 @@ interface Review {
 export class RecentreviewsComponent {
   review: Review = { 
     name: '', 
-    review: '', 
+    review:'',
+    comment: '', 
     rating: 0, 
     email: '', 
     phoneNumber: '', 
@@ -43,11 +45,12 @@ export class RecentreviewsComponent {
   constructor(private reviewService: ReviewService) { }
 
   onSubmit() {
-    this.reviewService.addReview(this.review).subscribe((response: any) => {
+    this.reviewService.addReview(this.review).subscribe(response => {
       console.log('Review submitted', response);
       this.review = { 
         name: '', 
-        review: '', 
+        comment: '', 
+        review:'',
         rating: 0, 
         email: '', 
         phoneNumber: '', 
