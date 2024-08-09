@@ -1,4 +1,4 @@
-<div class="header">
+<!-- <div class="header">
   <div>
     <h1>Trust Me</h1>
   </div>
@@ -8,11 +8,29 @@
         categories
       </h1>
     </a>
-    <a href="login"> 
+    <a href="sigin-sigup"> 
       <h1 class="login">
           SignOut
       </h1>
     </a>
   </div>
   </div>
+  <router-outlet></router-outlet> -->
+
+
+
+  <div class="header">
+    <div>
+      <h1>Trust Me</h1>
+    </div>
+    <div class="headerA">
+      <a *ngIf="authService.isAuthenticated()" href="categories">
+        <h1>Categories</h1>
+      </a>
+      <a href="sigin-sigup" (click)="onSignOut()">
+        <h1 class="login">SignOut</h1>
+      </a>
+    </div>
+  </div>
   <router-outlet></router-outlet>
+  

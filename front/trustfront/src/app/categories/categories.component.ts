@@ -11,49 +11,6 @@ import { RouterModule } from '@angular/router';
   styleUrl: './categories.component.css'
 })
 export class CategoriesComponent {
-  // categories: any[] = [];
-  // selectedCategoryCompanies: any[] = [];
-  // selectedCategoryName: string = '';
-
-  // @ViewChildren('categoryBox') categoryBoxes!: QueryList<ElementRef>;
-
-  // constructor(private categoryService: CategoriesService) { }
-  
-  // ngOnInit(): void {
-  //   this.categoryService.getCategories().subscribe(
-  //     (data) => {
-  //       this.categories = data;
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching categories', error);
-  //     }
-  //   );
-  // }
-
-  // loadCategoryCompanies(category: any): void {
-  //   this.selectedCategoryName = category.name;
-  //   this.categoryService.getCategoryCompanies(category.categoryid).subscribe(
-  //     (data) => {
-  //       this.selectedCategoryCompanies = data;
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching category companies', error);
-  //     }
-  //   );
-
-  //   // Scroll to the selected category
-  //   this.scrollToCategory(category.name);
-  // }
-
-  // scrollToCategory(categoryName: string): void {
-  //   const categoryBox = this.categoryBoxes.find(box => box.nativeElement.querySelector('.category-title').innerText.trim() === categoryName);
-  //   if (categoryBox) {
-  //     categoryBox.nativeElement.scrollIntoView({ behavior: 'smooth' });
-  //   }
-  // }
-
-
-
   categories: any[] = [];
   selectedCategoryCompanies: any[] = [];
   selectedCategoryName: string = '';
