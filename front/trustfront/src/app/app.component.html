@@ -19,15 +19,34 @@
 
 
 
+  <!-- <div class="header">
+    <div>
+      <h1>Trust Me</h1>
+    </div>
+    <div class="headerA">
+      <a href="categories">
+        <h1>Categories</h1>
+      </a>
+      <a href="sigin-sigup" (click)="onSignOut()">
+        <h1 class="login" >SignOut</h1>
+      </a> -->
+      <!-- <a href="sigin-sigup" (click)="onSignOut()" *ngIf="isSignedIn">
+        <h1 class="login">SignOut</h1>
+      </a>
+    </div>
+  </div>  -->
+
+
+
   <div class="header">
     <div>
       <h1>Trust Me</h1>
     </div>
     <div class="headerA">
-      <a *ngIf="authService.isAuthenticated()" href="categories">
+      <!-- <a *ngIf="isSignedIn" routerLink="/categories">
         <h1>Categories</h1>
-      </a>
-      <a href="sigin-sigup" (click)="onSignOut()">
+      </a> -->
+      <a *ngIf="isSignedIn" (click)="onSignOut()">
         <h1 class="login">SignOut</h1>
       </a>
     </div>

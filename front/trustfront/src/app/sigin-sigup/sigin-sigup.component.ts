@@ -57,6 +57,8 @@ export class SiginSigupComponent {
         }
       );
     }
+
+    sessionStorage.setItem('isSignedIn', 'true');
   }
 
   onSignUp() {
@@ -73,5 +75,7 @@ export class SiginSigupComponent {
         }
       );
     }
+    sessionStorage.setItem('isSignedIn', 'true');
+    this.router.navigate(['/categories']);
   }
 }

@@ -43,28 +43,14 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private isLoggedIn: boolean = false;
-
-  constructor(private router: Router) {}
-
-  login(): Observable<any> {
-    this.isLoggedIn = true;
-    return of({ success: true }); // Simulate a successful login
-  }
-
-  signup(data: any): Observable<any> {
-    // Implement signup logic here
-    return of({ success: true });
-     // Simulate a successful signup
-  }
-
-  logout() {
-    this.isLoggedIn = false;
-    this.router.navigate(['/sigin-sigup']);
-  }
-
   isAuthenticated(): boolean {
-    return this.isLoggedIn;
+    // Check if the user is authenticated
+    return !!localStorage.getItem('authToken'); // Example check
+  }
+
+  signOut(): void {
+    // Clear authentication data
+    localStorage.removeItem('authToken');
   }
 }
 

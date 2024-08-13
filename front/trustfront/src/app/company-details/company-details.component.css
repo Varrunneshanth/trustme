@@ -1,5 +1,4 @@
-/* Container and Content Styling */
-.company-details {
+/* .company-details {
     max-width: 100%;
     padding: 10px;
     background: #fcfcfd;
@@ -17,13 +16,12 @@
     padding: 20px;
 }
 
-/* Header Row Styling */
 .header-row {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     padding: 10px;
-    background: #e9ecef; /* Light background to make it distinct */
+    background: #e9ecef;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
@@ -40,7 +38,7 @@
     margin-right: 20px;
 }
 
-/* Review Form Styling */
+
 .review-form {
     margin-top: 20px;
     padding: 20px;
@@ -80,7 +78,7 @@
     background-color: #0056b3;
 }
 
-/* Modal Styling */
+
 .modal {
     position: fixed;
     z-index: 1;
@@ -116,7 +114,7 @@
     cursor: pointer;
 }
 
-/* Recent Reviews Styling */
+
 .recent {
     margin-top: 30px;
 }
@@ -147,8 +145,189 @@
     color: #f39c12;
 }
 
-/* General Text Styling */
 p {
     font-size: 16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+ */
+
+
+
+ body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.company-details {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.company-details:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+}
+
+.header-row h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.company-logo {
+    max-width: 80px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+    padding: 20px;
+}
+
+p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.review-form {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s;
+}
+
+.review-form:hover {
+    background-color: #f0f2f5;
+}
+
+.review-form label {
+    font-weight: 600;
+    color: #444;
+}
+
+.review-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    transition: border-color 0.3s;
+}
+
+.review-form textarea:focus {
+    border-color: #6a11cb;
+}
+
+.review-form .rating {
+    display: flex;
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #ffdd00;
+}
+
+.review-form button {
+    padding: 12px 20px;
+    background-color: #2575fc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.review-form button:hover {
+    background-color: #1a5bbb;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+}
+
+.recent {
+    margin-top: 40px;
+}
+
+.review-box {
+    background-color: #f1f1f1;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+.review-box:hover {
+    background-color: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.review-content h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #6a11cb;
+}
+
+.rating span {
+    font-size: 20px;
+    color: #ddd;
+}
+
+.rating span.filled {
+    color: #f39c12;
+}
+#comment{
+    width: 95%;
+    height: 100px;
+}
+
