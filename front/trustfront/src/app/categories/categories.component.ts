@@ -1,12 +1,12 @@
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { CategoriesService } from '../categories.service';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [NgFor,NgIf,NgClass,RouterModule],
+  imports: [NgFor,NgIf,NgClass,RouterModule,NgStyle],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css'
 })

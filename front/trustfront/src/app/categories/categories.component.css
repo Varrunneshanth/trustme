@@ -375,7 +375,30 @@ body {
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Initially positioned lower */
+    animation: fadeInUp 0.5s ease forwards;
 }
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delay each box by a different amount */
+.category-box:nth-child(1) { animation-delay: 0.2s; }
+.category-box:nth-child(2) { animation-delay: 0.4s; }
+.category-box:nth-child(3) { animation-delay: 0.6s; }
+.category-box:nth-child(4) { animation-delay: 0.8s; }
+.category-box:nth-child(5) { animation-delay: 1s; }
+/* Continue for more boxes as needed */
 
 .category-box:hover {
     transform: translateY(-10px);
@@ -532,4 +555,5 @@ body {
     font-size: 24px;
     color: #333;
 }
+
 
